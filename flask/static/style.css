@@ -1,0 +1,291 @@
+/* Add your CSS styles here */
+
+@import url('fonts.css');
+
+body{
+	font-family: "Inter Tight", "Arial", system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 11pt;
+    height:100vh;
+    width: 100vw;
+    background: #f0f6fa;
+}
+header {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background: #586174;
+    text-shadow: 0 1px 8px black;
+    color: #fefeff;
+    font-size: 11pt;
+    font-weight: 600;
+    display: grid; 
+    grid-template-columns: 500px 1fr 140px; 
+}
+button{
+    margin:  8px 8px 8px 0;
+    grid-column: 3/4;
+    border: 1px solid #0004;
+    border-width: 1px 1px 1px 1px;
+    background: linear-gradient(#f0f6fa 0%, #e0edf5 100%);
+    font-weight: 500;
+	text-align: center;
+    cursor: default;
+    border-radius: 6px;
+    color: #383e4a;
+}
+button.back {
+    grid-column: 3/4;
+    border-width: 1px 1px 1px 1px;
+    font-weight: 600;
+	background: linear-gradient(hsl(123, 49%, 54%) 0%, hsl(111, 51%, 65%) 100%);
+    border: 1px solid #333;
+    text-decoration:none;
+    color: black;
+    text-shadow: 0px 1px 5px white;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 70px); /* Subtract the header and footer height */
+}
+
+footer {
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-align: center;
+    font-size: 10pt;
+}
+
+#setupContainer {
+    flex: 0 0 auto; /* Do not grow or shrink, fit content */
+    margin:  0px 0px 10px 0px;
+    border-radius: 0 0 12px 12px;
+
+     /* Hide the chartSelection grid by default */
+    max-height: 0; 
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+    display: grid;
+    grid-template-columns: 1fr min-content;
+}
+
+#setupContainer.show {
+    max-height: 1000px; /* Set this to a value large enough to accommodate your content */
+}
+
+#setup-buttons {
+    display: grid;
+    grid-template-columns: 310px;
+    margin: 8px;
+    padding: 4px;
+    background:#9ab4;
+    border-radius: 10px;
+    border: 1px solid #788188;
+    box-shadow: 0px 0px 10px -6px black;
+    height: min-content;
+    width: min-content;
+    grid-column: 2/3;
+    grid-row: 1/2;
+}
+
+#loadSave-buttons {
+    padding: 8px;
+    margin: 8px;
+    background:#9ab4;
+    border-radius: 7px;
+    border: 1px solid #788188;
+}
+
+#loadSave-buttons button{
+    width: 89px;
+    padding: 6px;
+    margin: 8px 0px 0px 0px;
+}
+
+#updateContainer{
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    align-content: center;
+    justify-content: right;
+    width: 310px;
+    height: min-content;
+}
+button:hover{
+    filter: contrast(1.2);
+    transition: all 0.33s ease-in-out;
+}
+
+
+#updateContainer label{
+    grid-column: 1/2;
+    align-self: center;
+    justify-self: right;
+    padding: 10px;
+}
+#updateContainer input[type=number]{
+    width: 60px;
+    height: 36px;
+    grid-column: 2/3;
+    align-self: center;
+    justify-self: left;
+}
+
+#updateContainer span{
+    grid-column: 3/4;
+    align-self: center;
+    justify-self: left;
+    padding: 10px;
+}
+
+
+
+
+#chartSelectionContainerWrapper{
+    margin: 8px;
+    padding: 6px 2px;
+    background:#9ab4;
+    border-radius: 10px;
+    border: 1px solid #788188;
+    box-shadow: 0px 0px 10px -6px black;
+    grid-column: 1/2;
+    grid-row: 1/2;
+}
+#chartSelectionInfo{
+    padding: 10px;
+    text-shadow: 0 0 4px white;
+}
+#chartSelectionContainer .grid-stack-item-content {
+    display: grid;
+    padding: 0px 8px;
+    cursor: move;
+    inset: 0px !important; /* Gridstack adds undocumented inline inset, WTF? */
+    background: transparent;
+    overflow: hidden;
+}
+#chartSelectionContainer .grid-stack-item-content div{
+    align-self: center;
+    justify-self: center;
+    text-shadow: 0 0 4px white;
+
+}
+
+.placeholder-wrapper{
+    padding: 6px;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px -6px black;
+    background: #feffffcc;
+    border: 1px solid #999;
+}
+
+
+
+#detailedChartsContainer {
+    flex: 1 1 auto; /* Grow to fill remaining space */
+    border-radius: 8px;    
+    margin: 4px;
+    margin-top: -8px;
+    background: linear-gradient(0deg,  #f0f6fa  0%, #f0f6fa80 25%, #f0f6fa80 75%, #f0f6fa 100%), 
+                    url("/floating-cogs.svg");
+    background-color: #f0f6fa;
+}
+
+#detailedChartsContainer .grid-stack-item-content {
+    border: 2px solid #ccc;
+    box-shadow: 0px 0px 10px -6px grey;
+}
+
+
+.grid-stack {
+    min-height: 0; /* Allow grid to shrink */
+    overflow: hidden;
+}
+.grid-stack-item-content {
+    cursor: default;
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    padding: 0px;
+    inset: 0px !important; /* Gridstack adds undocumented inline inset, WTF? */
+    background: #feffff;
+    overflow: hidden;
+    display: flex;
+}
+
+.placeholder-collection-name{
+    color: #666;
+    font-size: 8pt;
+}
+
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block; /* Ensure the canvas is displayed as a block element */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+/* CSS for im_disp element */
+#im_disp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    background: #9ab4;
+}
+
+#im_W_disp, #im_data_disp, #status_message {
+    width: 100%;
+    text-align: center;
+    box-sizing: border-box;
+}
+
+#im_W_disp {
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+#im_data_disp {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+#status_message {
+    font-size: 24px;
+    color: darkgreen;
+    font-weight: 400;
+}
+#active-power, #voltage, #current, #power-factor, #frequency, #status{
+    font-weight: 600;
+}
+#power-factor{
+    color: #586174;
+}
+.slash{
+    color:#788188;
+}
+
+#chartSelectionContainerWrapper #im_disp *{
+    font-size: 11pt !important;
+}
+#chartSelectionContainerWrapper #im_disp {
+    height: 52px;
+    padding: 6px;
+    width: 100%;
+    border-radius: 6px;
+    box-shadow: 0px 0px 10px -6px black;
+    background: #e6f0ffcc;
+    border: 1px solid #999;
+    overflow: hidden;
+}

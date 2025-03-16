@@ -1,0 +1,129 @@
+/* Add your CSS styles here */
+
+@import url('fonts.css');
+
+/* 
+#im_W_disp {
+    font-size: 32px;
+    margin-bottom: 10px;
+}
+#im_data_disp {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+#status_message {
+    font-size: 16px;
+    color: darkgreen;
+}
+#usage_display, #gen_display {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+ */
+
+body{
+	font-family: "Inter Tight", "Arial", system-ui, sans-serif;
+    font-weight: 300;
+    font-size: 11pt;
+    height:100vh;
+    width: 100vw;
+    grid-template-rows: 60px min-content max-content;
+    background: #788188;
+}
+header {
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    background: #788188;
+    text-shadow: 0 1px 8px black;
+    color: #fefeff;
+    font-size: 12pt;
+    font-weight: 600;
+    display: grid; 
+    grid-template-columns: 500px 1fr 140px; 
+}
+button{
+    margin:  6px 6px 6px 0;
+    grid-column: 3/4;
+}
+main {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 76px); /* Subtract the header and footer height */
+}
+
+footer {
+    padding: 0;
+    margin: 0;
+    display: block;
+    text-align: center;
+    background: #788188;
+    text-shadow: 0 1px 8px black;
+    color: #fefeff;
+    font-size: 6pt;
+}
+.grid-stack-item {
+    background: #f8fbff;
+    border-radius: 9px;
+}
+
+#gridContainer {
+    min-height: 600px; /* Adjust as needed */
+    background-color: #fff;
+}
+#setupContainer {
+    flex: 0 0 auto; /* Do not grow or shrink, fit content */
+    margin:  0px 10px 10px 10px;
+
+     /* Hide the chartSelection grid by default */
+    max-height: 0; 
+    overflow: hidden;
+    transition: all 0.5s ease-in;
+}
+#detailedChartsContainer {
+    flex: 1 1 auto; /* Grow to fill remaining space */
+    border-radius: 9px;    
+    background: #f0f6fa;
+    margin: 4px;
+    margin-top: -8px;
+}
+.grid-stack {
+    min-height: 0; /* Allow grid to shrink */
+    overflow: hidden;
+}
+.grid-stack-item-content {
+    padding: 0px;
+    text-align: center;
+    /* cursor: move; */
+    inset: 0px !important; /* Gridstack adds undocumented inline inset, WTF? */
+    border-radius: 8px;
+    width: 100%;
+    height: 100%;
+    box-sizing: border-box; /* Ensure padding and border are included in the element's total width and height */
+    display: flex;
+    justify-content: center;
+    border: 2px solid #788188;
+    align-items: center;
+    background: #feffff;
+}
+#detailedChartsContainer .grid-stack-item-content {
+    border: 2px solid #ccc;
+    box-shadow: 0px 0px 20px -10px grey
+    
+}
+canvas {
+    width: 100%;
+    height: 100%;
+    display: block; /* Ensure the canvas is displayed as a block element */
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    box-sizing: border-box;
+}
+
+#setupContainer.show {
+    max-height: 1000px; /* Set this to a value large enough to accommodate your content */
+}
